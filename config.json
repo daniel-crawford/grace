@@ -1,0 +1,7 @@
+{
+    "embedding_model":"all-MiniLM-L6-v2",
+    "embedding_dim":384,
+    "llm_model":"gpt-4o-mini",
+    "index_file":"objects/faiss_index.pkl",
+    "metadata_file":"objects/metadata.pkl"
+}
