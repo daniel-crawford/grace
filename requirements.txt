@@ -1,0 +1,17 @@
+certifi
+dotenv
+faiss
+json
+numpy
+openai
+os
+pickle
+sentence_transformers
+ssl
+sys
+tempfil
+tqdm
+whisper
+yt_dlp
+
+

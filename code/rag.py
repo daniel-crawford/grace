@@ -1,19 +1,13 @@
-import openai
-import faiss
-import pickle
-
-from vector_database import get_embedding
 from dotenv import load_dotenv
-import os
 import json
+import os
+from openai import OpenAI
 
 # Configure OpenAI API
 # Load environment variables from .env file
 load_dotenv()
 
 
-import os
-from openai import OpenAI
 
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),

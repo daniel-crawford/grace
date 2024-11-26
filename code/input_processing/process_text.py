@@ -1,5 +1,5 @@
-from sentence_transformers import SentenceTransformer
 import os
+from sentence_transformers import SentenceTransformer
 import whisper
 
 # Load configuration from a JSON file in the main directory

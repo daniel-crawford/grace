@@ -1,11 +1,12 @@
+import faiss
 import json
 import numpy as np
-from sentence_transformers import SentenceTransformer
-from tqdm import tqdm
-import sys
-import faiss
 import os 
 import pickle
+from sentence_transformers import SentenceTransformer
+import sys
+from tqdm import tqdm
+
 
 sys.path.append('./code/')
 from input_processing.process_audio import process_youtube_audio

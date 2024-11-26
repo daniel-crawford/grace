@@ -1,8 +1,8 @@
 import faiss
 import numpy as np
+import os
 import pickle
 from sentence_transformers import SentenceTransformer
-import os
 
 # File paths for saving the FAISS index and metadata
 INDEX_FILE = "objects/faiss_index.pkl"

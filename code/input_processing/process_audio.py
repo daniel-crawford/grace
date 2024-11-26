@@ -1,8 +1,8 @@
 import certifi
 import json
 import os
-import ssl
 from sentence_transformers import SentenceTransformer
+import ssl
 import tempfile
 import whisper
 import yt_dlp
