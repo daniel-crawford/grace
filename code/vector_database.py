@@ -9,9 +9,9 @@ INDEX_FILE = "objects/faiss_index.pkl"
 METADATA_FILE = "objects/metadata.pkl"
 
 
+print("Loading all-MiniLM-L6-v2")
 # Load embedding models
 text_embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
-
 
 # Initialize FAISS index
 def initialize_faiss_index(dim):
@@ -72,7 +72,6 @@ def save_index(index, metadata, index_file, metadata_file):
         pickle.dump(metadata, f)
     print("FAISS index and metadata saved.")
 
-
 def add_to_faiss(index, metadata_store, embeddings, metadata_list):
     """
     Add embeddings and metadata to the FAISS index.
@@ -126,9 +125,9 @@ if __name__ == "__main__":
 
     # Step 2: Add data to the index
     texts = [
-        "Military strategy involves coordination.",
-        "AI tools are used for intelligence.",
-        "Logistics planning requires terrain analysis."
+        "God is love.",
+        "Adam and Eve were in the Garden of Eden.",
+        "Jesus talked in parables."
     ]
     metadata = [
         {"type": "report_analysis", "source": "file_1.txt", "timestamp": "2024-11-23", "version": "1.0", "text": texts[0]},
@@ -147,7 +146,7 @@ if __name__ == "__main__":
     save_index(faiss_index, metadata, INDEX_FILE, METADATA_FILE)
 
     # Step 3: Query the FAISS index
-    query_text = "What is the role of AI in military strategy?"
+    query_text = "Who lived in teh Garden of Eden?"
     query_embedding = embedding_model.encode([query_text])
 
     results = query_faiss_index(faiss_index, metadata, np.array(query_embedding), k=3)

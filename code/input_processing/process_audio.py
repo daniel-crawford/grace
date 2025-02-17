@@ -5,8 +5,11 @@ from sentence_transformers import SentenceTransformer
 import ssl
 import tempfile
 import whisper
+import warnings
 import yt_dlp
 
+# Suppress warnings
+warnings.filterwarnings("ignore")
 
 ssl._create_default_https_context = ssl.create_default_context
 ssl._create_default_https_context().load_verify_locations(certifi.where())
@@ -21,8 +24,10 @@ with open(config_path, 'r') as config_file:
 os.environ["PATH"] += os.pathsep + "/opt/homebrew/bin/ffmpeg"
 
 # Load Whisper model for transcription
-whisper_model = whisper.load_model("base.en")
+print("Loading Whisper model...")
+whisper_model = whisper.load_model("tiny")
 
+print("Loading SentenceTransformer model...")
 # Load SentenceTransformer model for embedding creation
 embedding_model = SentenceTransformer(config["embedding_model"])
 
@@ -126,7 +131,7 @@ def process_youtube_audio(youtube_url, chunk_size=50):
 
 # Example usage
 if __name__ == "__main__":
-    youtube_url = "https://www.youtube.com/watch?v=wUssm0X_ELw"  # Replace with a valid YouTube URL
+    youtube_url = "https://www.youtube.com/watch?v=T5nHMq5kU6c"  # Replace with a valid YouTube URL
     
     processed_data = process_youtube_audio(youtube_url)
     

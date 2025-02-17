@@ -1,17 +1,21 @@
 import faiss
 import json
-import numpy as np
 import os 
 import pickle
 from sentence_transformers import SentenceTransformer
 import sys
 from tqdm import tqdm
+import warnings
+
+# Suppress warnings
+warnings.filterwarnings("ignore")
 
 
 sys.path.append('./code/')
 from input_processing.process_audio import process_youtube_audio
 from vector_database import add_to_faiss, query_faiss_index, get_embedding, initialize_faiss_index
 from rag import build_prompt, generate_response, generate_response_no_context
+
 
 # Load configuration from a JSON file
 with open('config.json', 'r') as config_file:
@@ -24,16 +28,16 @@ EMBEDDING_DIM = config.get("embedding_dim", 384)
 EMBEDDING_MODEL = config.get("embedding_model", "all-MiniLM-L6-v2")
 LLM_MODEL = config.get("llm_model", "gpt-4o-mini")
 
-
-
-
 # Build the FAISS index
 if os.path.exists(INDEX_FILE) and os.path.exists(METADATA_FILE):
+    print("Loading existing FAISS index and metadata...")
     with open(INDEX_FILE, 'rb') as f:
         faiss_index = pickle.load(f)
     with open(METADATA_FILE, 'rb') as f:
         metadata = pickle.load(f)
+
 else:
+    print("Building FAISS index from YouTube URLs...")
     texts, embeddings, metadata = [], [], []
     # "Watch" youtube videos and process the audio
     with open('youtube_urls.txt', 'r') as file:
@@ -82,5 +86,4 @@ if __name__ == "__main__":
         if query == "exit":
             break
         run_query(query)
-        print('-'*50)
-        print("\n\n\n")
+        print('-'*50 + "\n\n\n")

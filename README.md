@@ -1,8 +1,10 @@
-# Problem Statement:
-Efficiently use open-source data to create RAG-LLM for military support
+# GRACE: Gloo Retrieval-Augmented Christian Engine
+
+## Problem Statement:
+Create an AI agent that sources real-world sermons, trasncribes, and then can converse/answer questions, sourcing those sermons.
 
 ## System Overview
-- Transcribe YouTube videos, and add to embedding, giving context to LLM
+- Transcribe videos of Christian sermons, and add to embedding, giving context to LLM
 
 ## Tech Stack
 - **Python**: General programming language
@@ -10,11 +12,12 @@ Efficiently use open-source data to create RAG-LLM for military support
 - **All MiniML L6 v2**: Embedding Model
 - **FAISS**: Vector DB
 - **OpenAI**: chatGPT4
+- **Next.js** App Deployment (local for now)
+- **FastAPI** Hosting and backend connection
 
 ## Results
-- Specific, updated information, that can be used by the warfighter immediately
-- Direct citation of material
+- Specific, updated information
 
 ## Extensions
-- Add in video/visual parsing
-- Integrate with existing DoD systems
+- Uploading custom sermons
+- Including Citations

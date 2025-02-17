@@ -1,6 +1,6 @@
+import json
 import os
 from sentence_transformers import SentenceTransformer
-import whisper
 
 # Load configuration from a JSON file in the main directory
 config_path = os.path.join('config.json')
@@ -10,7 +10,7 @@ with open(config_path, 'r') as config_file:
 
 
 # Load SentenceTransformer model for embedding creation
-embedding_model = SentenceTransformer('embedding_model')
+embedding_model = SentenceTransformer(os.environ.get("EMBEDDING_MODEL", config["embedding_model"]))
 
 def process_text_data(text, source=None):
     """
@@ -48,8 +48,8 @@ def process_text_data(text, source=None):
 # Example usage
 if __name__ == "__main__":
     # Replace with your text input
-    example_text = "The reconnaissance mission identified key supply routes in the operation zone."
-    example_source = "Recon Report"
+    example_text = "Which gospel contains the Sermon on the Mount?"
+    example_source = "Bible"
 
     processed_text_data = process_text_data(example_text, source=example_source)
     

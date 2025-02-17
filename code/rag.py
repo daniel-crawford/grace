@@ -7,8 +7,6 @@ from openai import OpenAI
 # Load environment variables from .env file
 load_dotenv()
 
-
-
 client = OpenAI(
     api_key=os.environ.get("OPENAI_API_KEY"),
 )
@@ -26,7 +24,6 @@ chat_completion = client.chat.completions.create(
 # Load configuration from config.json
 
 CONFIG_FILE = "config.json"
-
 with open(CONFIG_FILE, "r") as config_file:
     config = json.load(config_file)
 

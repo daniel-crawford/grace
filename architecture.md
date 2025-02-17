@@ -1,4 +1,4 @@
-# System Architecture for Sentinel RAG
+# System Architecture
 1. Input Processing Layer (Data Ingestion)
 -       Audio Data:
 
@@ -27,5 +27,11 @@
         Pass top-N relevant results to an LLM (GPT-4o-mini).
         Response Generation:
                 Ensure the LLM generates context-aware responses grounded in retrieved data.
+
+6. Next.js hosting
+        -       Deployment:
+                - Use FastAPI for hosting the Next.js application.
+                - Ensure environment variables are securely managed.
+                - Set up continuous deployment for seamless updates.
 
 

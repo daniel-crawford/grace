@@ -1,6 +1,6 @@
 certifi
 dotenv
-faiss
+faiss==1.9
 json
 numpy
 openai
@@ -11,6 +11,7 @@ ssl
 sys
 tempfil
 tqdm
+torch==2.0
 whisper
 yt_dlp
 
