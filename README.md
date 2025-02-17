@@ -1,4 +1,4 @@
-# GRACE: Gloo Retrieval-Augmented Christian Engine
+# GRACE: G*** Retrieval-Augmented Christian Engine
 
 ## Problem Statement:
 Create an AI agent that sources real-world sermons, trasncribes, and then can converse/answer questions, sourcing those sermons.
